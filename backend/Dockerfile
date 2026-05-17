@@ -31,8 +31,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Salin seluruh kode backend
 COPY . .
 
-# Ekspos port (Render biasanya menggunakan variabel PORT atau port 10000 secara default)
-EXPOSE 8000
+# Ekspos port (Hugging Face / Render)
+EXPOSE 7860
 
 # Perintah untuk menjalankan aplikasi menggunakan Gunicorn dengan worker Uvicorn
-CMD gunicorn main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT:-8000}
+CMD gunicorn main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT:-7860}
